@@ -41,6 +41,7 @@ deploy:
   release: mius-v$(appveyor_build_version)
   description: 'mius build commit $(APPVEYOR_REPO_COMMIT) $(APPVEYOR_REPO_COMMIT_TIMESTAMP)'
   provider: GitHub
+  force_update: true
   auth_token:
     secure: QApTMXYx9yadrrlsoagOyHV1ZSJtCa60hCqKlkqB9OymwNuBB1m0cVdTllr+uYMd
   on:
