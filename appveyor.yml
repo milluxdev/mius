@@ -30,15 +30,14 @@ build_script:
   - yarn build
 
 after_build:
-  - mv -f build/*.exe mius-v%APPVEYOR_BUILD_VERSION%.exe
+  - mv -f build/*.exe mius-v%APPVEYOR_REPO_TAG_NAME%.exe
 
 
 artifacts:
-  - path: mius-v$(appveyor_build_version).exe
+  - path: mius-v$(APPVEYOR_REPO_TAG_NAME).exe
     name: mius client
 
 deploy:
-  release: mius-v$(appveyor_build_version)
   description: 'mius build commit $(APPVEYOR_REPO_COMMIT) $(APPVEYOR_REPO_COMMIT_TIMESTAMP)'
   provider: GitHub
   force_update: true
