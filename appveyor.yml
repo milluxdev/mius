@@ -30,6 +30,17 @@ build_script:
   - yarn build
 
 after_build:
+  - cd build
+  - git clone https://github.com/milluxdev/mius_cos.git
+  - cp *.exe ./mius_cos/
+  - cp *.yml ./mius_cos/
+  - cp *.blockmap ./mius_cos/
+  - cd mius_cos
+  - echo "var config = { SecretId: '%SecretId%', SecretKey: '%SecretId%', Bucket: '%Bucket%', Region: '%Region%'};" >>  config.js
+  - cat config.js
+  - npm install
+  - npm run update
+  - cd ..
   - mv -f build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
 
 

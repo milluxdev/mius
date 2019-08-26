@@ -24,6 +24,12 @@
     "directories": {
       "output": "build"
     },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://mius-1252282306.cos.ap-shanghai.myqcloud.com/"
+      }
+    ],
     "files": [
       "dist/electron/**/*"
     ],
@@ -55,6 +61,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
+    "electron-updater": "^4.1.2",
     "iview": "^3.4.2",
     "moment": "^2.24.0",
     "nedb": "^1.8.0",
@@ -80,7 +87,7 @@
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
     "devtron": "^1.4.0",
-    "electron": "^2.0.2",
+    "electron": "^6.0.2",
     "electron-builder": "^20.15.3",
     "electron-debug": "^2.0.0",
     "electron-devtools-installer": "^2.2.4",
