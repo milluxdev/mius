@@ -30,11 +30,11 @@ build_script:
   - yarn build
 
 after_build:
-  - mv -f build/*.exe mius-v%APPVEYOR_REPO_TAG_NAME%.exe
+  - mv -f build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
 
 
 artifacts:
-  - path: mius-v$(APPVEYOR_REPO_TAG_NAME).exe
+  - path: mius-win-$(APPVEYOR_REPO_TAG_NAME).exe
     name: mius client
 
 deploy:
