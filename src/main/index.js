@@ -125,5 +125,5 @@ ipcMain.on('max', e => {
 ipcMain.on('close', e => mainWindow.close());
 
 ipcMain.on('update', (e, arg) => {
-  //autoUpdater.quitAndInstall();
+  autoUpdater.quitAndInstall();
 })
