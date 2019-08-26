@@ -36,10 +36,8 @@ after_build:
   - cp *.yml ./mius_cos/
   - cp *.blockmap ./mius_cos/
   - cd mius_cos
-  - echo "var config = { SecretId: '%SecretId%', SecretKey: '%SecretKey%', Bucket: '%Bucket%', Region: '%Region%'}; module.exports = config;" >  config.js
-  - cat config.js
   - npm install
-  - npm run update
+  - node ./index.js %SecretId% %SecretKey% %Bucket% %Region%
   - cd ..
   - mv -f build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
 
