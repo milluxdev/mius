@@ -30,6 +30,9 @@ build_script:
   - yarn build
 
 after_build:
+  - cp -fr build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
+
+after_deploy:
   - cd build
   - git clone https://github.com/milluxdev/mius_cos.git
   - cp *.exe ./mius_cos/
@@ -39,8 +42,6 @@ after_build:
   - npm install
   - node ./index.js %SecretId% %SecretKey% %Bucket% %Region%
   - cd ..
-  - mv -f build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
-
 
 artifacts:
   - path: mius-win-$(APPVEYOR_REPO_TAG_NAME).exe
@@ -53,7 +54,6 @@ deploy:
   auth_token:
     secure: QApTMXYx9yadrrlsoagOyHV1ZSJtCa60hCqKlkqB9OymwNuBB1m0cVdTllr+uYMd
   on:
-    branch: master    
     appveyor_repo_tag: true 
 
 test: off
