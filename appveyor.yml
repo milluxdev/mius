@@ -30,7 +30,10 @@ build_script:
   - yarn build
 
 after_build:
-  - cp -fr build/*.exe mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
+  - cd build
+  - cp -fr *.exe mius.exe
+  - cp -fr ./mius.exe ../mius-win-%APPVEYOR_REPO_TAG_NAME%.exe
+  - cd ..
 
 after_deploy:
   - cd build
