@@ -39,14 +39,14 @@ before_deploy:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then tar -czf mius-$TRAVIS_OS_NAME.tar.gz *.dmg
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tar -czf mius-$TRAVIS_OS_NAME.tar.gz *.AppImage
   - mv mius-$TRAVIS_OS_NAME.tar.gz ../mius-$TRAVIS_OS_NAME.tar.gz
-
+  
 deploy:
-  provider: releases
+  provider: pages
   file:
   - mius-$TRAVIS_OS_NAME-$TRAVIS_TAG.tar.gz
   skip_cleanup: true
-  overwrite: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
   on:
     branch: master
-  api-key: $GH_TOKEN
 
