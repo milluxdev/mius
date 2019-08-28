@@ -1,4 +1,4 @@
-## Mius [![Build status](https://ci.appveyor.com/api/projects/status/cj9js8ldbp1qtmtd/branch/master?svg=true)](https://ci.appveyor.com/project/milluxdev/mius/branch/master)
+## Mius
 一个简单的Ygopro大厅客户端，集成多个服务器
 
 ### 服务器列表
@@ -28,21 +28,3 @@
 * 用户账号系统
 * 本地录像查看
 * 自动更新YGOPro
-
-
-
-#### 使用方法
-
-``` bash
-#  安装依赖
-npm install || yarn
-
-# 本地运行
-npm run dev || yarn run dev
-
-# 构建应用
-npm run build || yarn run build
-```
-
----
-这个项目是基于[electron-vue](https://github.com/SimulatedGREG/electron-vue)使用[vue-cli](https://github.com/vuejs/vue-cli)构建. 
