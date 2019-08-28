@@ -1,10 +1,10 @@
-## Mius
+## Mius [![Build status](https://ci.appveyor.com/api/projects/status/cj9js8ldbp1qtmtd/branch/master?svg=true)](https://ci.appveyor.com/project/milluxdev/mius/branch/master)
 一个简单的Ygopro大厅客户端，集成多个服务器
 
 ### 服务器列表
 * [YGOPro Koishi服](http://koishi.222diy.gdn/)
 * [YGOPro 222DIY服](https://koishi.pro/pre.html)
-* [萌卡MyCard](https://mycard.moe/) (基于[moecube](https://github.com/moecube/moecube)构建) 
+* [萌卡MyCard](https://mycard.moe/) (基于[moecube](https://github.com/mycard/moecube)构建) 
 * YGOPro 1311服(TCG环境)
 
 ### 现有功能
