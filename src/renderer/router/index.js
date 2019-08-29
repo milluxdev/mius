@@ -8,13 +8,13 @@ const routes = [{
   name: 'main',
   component: require('@/components/MainPage').default,
   children: [{
-      path: '/222server',
-      name: 'server',
-      component: require('@/components/page/ServerPage').default,
-    }, {
       path: '/',
       name: '7210server',
       component: require('@/components/page/Server7210Page').default,
+    }, {
+      path: '/222server',
+      name: 'server',
+      component: require('@/components/page/ServerPage').default,
     }, {
       path: '/1311server',
       name: '1311server',
