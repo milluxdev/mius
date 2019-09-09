@@ -43,7 +43,8 @@ after_deploy:
   - cp *.blockmap ./mius_cos/
   - cd mius_cos
   - npm install
-  - node ./index.js %SecretId% %SecretKey% %Bucket% %Region%
+  - node ./index.js %SecretId% %SecretKey% %Bucket% %Region% %Dir%
+  - node ./ali.js %AliSecretId% %AliSecretKey% %AliBucket% %AliRegion% %Dir%
   - cd ..
 
 artifacts:
