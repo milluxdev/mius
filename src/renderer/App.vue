@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -11,8 +13,7 @@
 
   export default {
     name: 'm-music',
-    methods: {
-    },
+    methods: {},
     mounted() {
       let that = this
       ipc.on('message', (event, {

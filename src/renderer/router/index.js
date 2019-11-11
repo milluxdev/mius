@@ -4,6 +4,10 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const routes = [{
+  path: '/load',
+  name: 'load',
+  component: require('@/components/page/LoadPage').default,
+}, {
   path: '/',
   name: 'main',
   component: require('@/components/MainPage').default,
@@ -23,6 +27,14 @@ const routes = [{
       path: '/mcserver',
       name: 'mcserver',
       component: require('@/components/page/McServerPage').default,
+    }, {
+      path: '/YGOCC',
+      name: 'YGOCC',
+      component: require('@/components/page/ServerYgoccPage').default,
+    }, {
+      path: '/NO81',
+      name: 'NO81',
+      component: require('@/components/page/ServerNO81Page').default,
     },
     {
       path: '/mclogin',
@@ -32,11 +44,7 @@ const routes = [{
       path: '/deck',
       name: 'deck',
       component: require('@/components/page/DeckPage').default,
-    }, {
-      path: '/xpg',
-      name: 'xpg',
-      component: require('@/components/page/XpgPage').default,
-    },
+    }
   ]
 }]
 

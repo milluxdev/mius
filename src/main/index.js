@@ -58,7 +58,7 @@ let checkForUpdates = () => {
 
   autoUpdater.on('error', function (message) {
     mainWindow.webContents.send('message', {
-      "message":  'error'
+      "message": 'error'
     })
   });
   autoUpdater.on('checking-for-update', function (message) {
@@ -78,7 +78,7 @@ let checkForUpdates = () => {
   });
 
   autoUpdater.on('download-progress', function (progressObj) {
-    mainWindow.webContents.send('message',  {
+    mainWindow.webContents.send('message', {
       "message": 'download-progress',
       "data": progressObj
     })

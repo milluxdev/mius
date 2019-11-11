@@ -8,7 +8,7 @@
                 </FormItem>
                 <FormItem prop="password">
                     <Input v-model="logininfo.password" type="password" placeholder="请输入密码" style="width: 240px"
-                        icon="locked"></Input>
+                        icon="locked" @keyup.enter.native="mclogin('login_form')"></Input>
                 </FormItem>
                 <FormItem>
                     <Button type="primary" style="width: 240px" @click="mclogin('login_form')">登录</Button>

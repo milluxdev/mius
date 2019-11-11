@@ -3,28 +3,23 @@
     <Row>
       <Table height="550" stripe :columns="columns" :data="datas"></Table>
     </Row>
-    <div style="margin: 10px;overflow: hidden">
-      <div style="float: right;">
-        <Page :total="total" :current="current" @on-change="changePage" show-total></Page>
-      </div>
-    </div>
 
-    <Modal v-model="update_deckname" title="修改卡组名称" width="300" :closable="false" @on-ok="change_deckname">
-      <label class="labelinfo" for="deckname"> 卡组名称:
-        <Input v-model="deckname" placeholder="请输入卡组名称" style="width: 200px" id="deckname"></Input>
+    <Modal v-model="update_deckname" :title="$t('deck.updateTitle')" width="350" :closable="false" @on-ok="change_deckname" :ok-text="$t('deck.ok')" :cancel-text="$t('deck.cancel')">
+      <label class="labelinfo" for="deckname"> {{$t('deck.deckname')}}:
+        <Input v-model="deckname" :placeholder="$t('placeholder.deckname')" style="width: 200px" id="deckname"></Input>
       </label>
     </Modal>
     <Modal v-model="check_delete" width="360">
       <p slot="header" style="color:#f60;text-align:center">
         <Icon type="information-circled"></Icon>
-        <span>确认删除</span>
+        <span>{{$t('deck.deleteCheck')}}</span>
       </p>
       <div style="text-align:center">
-        <p>卡组删除之后无法恢复</p>
-        <p>是否确认删除</p>
+        <p>{{$t('deck.deleteMsg_1')}}</p>
+        <p>{{$t('deck.deleteMsg_2')}}</p>
       </div>
       <div slot="footer">
-        <Button type="error" size="large" long @click="delete_deck">确认删除</Button>
+        <Button type="error" size="large" long @click="delete_deck">{{$t('deck.deleteCheck')}}</Button>
       </div>
     </Modal>
   </div>
@@ -42,10 +37,10 @@
         update_deckname: false,
         deckname: '',
         columns: [{
-          title: '卡组名称',
+          title: this.$t('deck.deckname'),
           key: 'deckname',
         }, {
-          title: '操作',
+          title: this.$t('deck.operate'),
           key: 'action',
           width: 250,
           align: 'center',
@@ -63,7 +58,7 @@
                     this.change_deck(params.row)
                   }
                 }
-              }, '修改名称'),
+              }, this.$t('deck.update')),
               h('Button', {
                 props: {
                   type: 'primary',
@@ -77,7 +72,7 @@
                     this.update_deck(params.row)
                   }
                 }
-              }, '编辑卡组'),
+              }, this.$t('deck.edit')),
               h('Button', {
                 props: {
                   type: 'error',
@@ -91,15 +86,13 @@
                     this.del_deck(params.row)
                   }
                 }
-              }, '删除卡组')
+              }, this.$t('deck.delete'))
             ]);
           }
         }],
         datas: [],
         data: [],
         timer: null,
-        total: 10,
-        current: 1,
         ret: null,
         row: null
       }
@@ -117,11 +110,11 @@
         } else {
           fs.rename(path.join(that.ret.dir, '/deck', oldname), path.join(that.ret.dir, '/deck', newname), function (err) {
             if (err) {
-              that.$Message.error('修改卡组名称失败');
+              that.$Message.error(that.$t('deck.updateError'));
               console.log(err);
               return
             }
-            that.$Message.success('修改卡组名称成功');
+            that.$Message.success(that.$t('deck.updateSuccess'));
             that.showData();
           });
         }
@@ -137,11 +130,11 @@
         let deckname = path.join(that.ret.dir, '/deck', row.deckname_stuff)
         fs.unlink(deckname, function (err) {
           if (err) {
-            that.$Message.error('删除卡组失败');
+            that.$Message.error(that.$t('deck.deleteError'));
             console.log(err);
             return
           }
-          that.$Message.success('删除卡组成功');
+          that.$Message.success(that.$t('deck.deleteSuccess'));
           that.showData();
         });
         this.check_delete = false;
@@ -172,16 +165,8 @@
             }
           }
           that.total = that.data.length;
-          that.datas = that.data.slice(0, 10)
-          that.getData(that.current)
+          that.datas = that.data
         })
-      },
-      getData(page) {
-        this.datas = this.data.slice((page - 1) * 10, page * 10)
-      },
-      changePage(page) {
-        this.current = page;
-        this.showData()
       }
     },
     components: {
