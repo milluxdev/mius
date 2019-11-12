@@ -1,8 +1,8 @@
 {
-  "name": "mius",
-  "version": "1.1.5",
-  "author": "millux",
-  "description": "mius",
+  "name": "Mius",
+  "version": "1.1.6",
+  "author": "Millux",
+  "description": "Mius",
   "license": "UNLICENSED",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -19,15 +19,14 @@
     "unit": "karma start test/unit/karma.conf.js"
   },
   "build": {
-    "productName": "mius",
+    "productName": "Mius",
     "appId": "site.millux.mius",
     "directories": {
       "output": "build"
     },
     "publish": [
       {
-        "provider": "generic",
-        "url": "https://mius-1252282306.cos.ap-shanghai.myqcloud.com/"
+        "choices": "never"
       }
     ],
     "files": [
@@ -49,18 +48,28 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns"
+      "icon": "icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico",
-      "target": "nsis"
+      "icon": "icons/icon.ico",
+      "target": [{
+        "target": "nsis",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }],
+      "artifactName": "${name}-Setup.${ext}"
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "menuCategory": "Mius",
+      "installerLanguages": ["zh_CN", "en_US"],
+      "multiLanguageInstaller": true
     },
     "linux": {
-      "icon": "build/icons"
+      "icon": "icons"
     }
   },
   "dependencies": {

@@ -49,10 +49,10 @@ after_deploy:
 
 artifacts:
   - path: mius-win-$(APPVEYOR_REPO_TAG_NAME).exe
-    name: mius client
+    name: Mius-Client
 
 deploy:
-  description: 'mius build commit $(APPVEYOR_REPO_COMMIT) $(APPVEYOR_REPO_COMMIT_TIMESTAMP)'
+  description: 'Mius build commit $(APPVEYOR_REPO_COMMIT) $(APPVEYOR_REPO_COMMIT_TIMESTAMP)'
   provider: GitHub
   force_update: true
   auth_token:

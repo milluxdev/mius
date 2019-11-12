@@ -32,7 +32,6 @@ const messages = {
   "zh": zh,
   "en": en,
 }
-console.log()
 let lang = 'zh'
 if (localStorage.getItem('lang_setting')) {
   lang = localStorage.getItem('lang_setting')
