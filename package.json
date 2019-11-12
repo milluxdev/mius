@@ -24,11 +24,10 @@
     "directories": {
       "output": "build"
     },
-    "publish": [
-      {
-        "choices": "never"
-      }
-    ],
+    "publish": {
+      "provider": "generic",
+      "url": "https://mius-1252282306.cos.ap-shanghai.myqcloud.com/"
+    },
     "files": [
       "dist/electron/**/*"
     ],
@@ -52,20 +51,25 @@
     },
     "win": {
       "icon": "icons/icon.ico",
-      "target": [{
-        "target": "nsis",
-        "arch": [
-          "x64",
-          "ia32"
-        ]
-      }],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
       "artifactName": "${name}-Setup.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "menuCategory": "Mius",
-      "installerLanguages": ["zh_CN", "en_US"],
+      "installerLanguages": [
+        "zh_CN",
+        "en_US"
+      ],
       "multiLanguageInstaller": true
     },
     "linux": {
